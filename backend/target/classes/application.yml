@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/guidemate}
+    username: ${DB_USER:guidemate}
+    password: ${DB_PASSWORD:guidemate}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  flyway:
+    enabled: true
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+server:
+  port: 8080
+
+jwt:
+  secret: ${JWT_SECRET:change_me_to_real_secret_with_at_least_256_bits}
+  access-expiration-minutes: 30
+  refresh-expiration-days: 14
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
